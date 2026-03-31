@@ -1,0 +1,107 @@
+{
+  "theme_and_archetype": {
+    "theme": "dark",
+    "archetype": "2 (The Performance Pro)",
+    "description": "Command-center focus with 'Tactical Minimalism'. Deep Obsidian anchor. High-contrast Active colors (Electric Blue for Swimming, Zen Teal for Yoga) acting as kinetic triggers."
+  },
+  "colors": {
+    "background": "#0A0A0A",
+    "surface": "#141414",
+    "surface_elevated": "#1E1E1E",
+    "primary_swimming": "#00E5FF",
+    "primary_yoga": "#00BFA5",
+    "warning_nudge": "#FF3B30",
+    "text_main": "#FFFFFF",
+    "text_muted": "#A1A1AA",
+    "border_subtle": "#27272A",
+    "glass_bg": "rgba(10, 10, 10, 0.7)"
+  },
+  "typography": {
+    "font_heading": "Outfit, sans-serif",
+    "font_body": "Manrope, sans-serif",
+    "sizing": {
+      "h1": "text-4xl font-black tracking-tighter text-white",
+      "h2": "text-2xl font-bold tracking-tight text-white",
+      "h3": "text-xl font-bold tracking-tight text-white",
+      "body": "text-base text-zinc-300",
+      "overline": "text-xs font-bold uppercase tracking-[0.2em] text-zinc-500"
+    }
+  },
+  "layout": {
+    "container": "w-full max-w-md mx-auto min-h-screen bg-[#0A0A0A] relative pb-24 overflow-x-hidden",
+    "padding": "px-6 py-8",
+    "grid_system": "grid grid-cols-2 gap-4"
+  },
+  "components": {
+    "bottom_nav": {
+      "container": "fixed bottom-0 left-0 right-0 max-w-md mx-auto h-20 backdrop-blur-2xl bg-[#0A0A0A]/80 border-t border-white/10 flex justify-around items-center px-4 z-50",
+      "item_active": "text-white flex flex-col items-center gap-1",
+      "item_inactive": "text-zinc-600 hover:text-zinc-400 flex flex-col items-center gap-1 transition-colors",
+      "label": "text-[10px] font-bold uppercase tracking-wider"
+    },
+    "card": {
+      "base": "bg-[#141414] rounded-3xl border border-white/5 p-6 overflow-hidden relative",
+      "interactive": "hover:-translate-y-1 transition-transform duration-300 cursor-pointer"
+    },
+    "mode_switcher": {
+      "wrapper": "flex space-x-2 bg-white/5 p-1.5 rounded-full overflow-x-auto no-scrollbar",
+      "tab_active": "bg-white text-black rounded-full px-5 py-2.5 text-sm font-bold shadow-sm whitespace-nowrap",
+      "tab_inactive": "text-zinc-400 px-5 py-2.5 text-sm font-semibold hover:text-white whitespace-nowrap transition-colors"
+    },
+    "action_button": {
+      "primary": "w-full bg-white text-black font-bold rounded-2xl px-6 py-4 flex items-center justify-center gap-2 active:scale-95 transition-all",
+      "swimming": "w-full bg-[#00E5FF] text-black font-bold rounded-2xl px-6 py-4 active:scale-95 transition-all",
+      "yoga": "w-full bg-[#00BFA5] text-black font-bold rounded-2xl px-6 py-4 active:scale-95 transition-all"
+    },
+    "discipline_score": {
+      "ring": "w-24 h-24 rounded-full border-4 border-[#00E5FF] flex items-center justify-center",
+      "text": "text-3xl font-black text-white"
+    }
+  },
+  "features_design_logic": {
+    "activity_logger": "Use a 2-column bento grid for Quick Log. Swimming card uses #00E5FF accents, Yoga card uses #00BFA5 accents. Include metric inputs (Laps/Duration).",
+    "nudge_engine": "Implement a sticky top banner or custom Sonner toast with a bright #FF3B30 border or background to indicate urgency. 'The pool is waiting...'",
+    "meal_engine": "Horizontal scrolling list of meal cards. The Mode Switcher (Home, Trip, Detox, Cheat) sits above it. Cards use real images, with calorie estimation badges.",
+    "vision_upload": "A dashed border (#27272A) dropzone/button in the Meal area to 'Upload Photo'. Include a simulated AI scanning state.",
+    "social_feed": "A horizontal row of avatars at the top or dedicated section. Each avatar has a glowing SVG border representing their Discipline Score. Add a small 'Zap' or 'Flame' icon button to Poke them.",
+    "reward_badges": "Use Lucide-React icons (e.g., Shield, Award, Zap) inside glassmorphic circles (bg-white/10) with glowing borders to represent streaks.",
+    "charts": "Use Recharts for Calorie/Step trends. Remove chart grid lines, use single distinct lines (Electric Blue). Tooltips must have dark backgrounds (#141414)."
+  },
+  "assets": {
+    "icons_library": "lucide-react",
+    "images": {
+      "swimming_bg": {
+        "url": "https://images.pexels.com/photos/5259883/pexels-photo-5259883.jpeg",
+        "description": "Black and white swimmer underwater. Use as card background with heavy gradient overlay."
+      },
+      "meal_bowl": {
+        "url": "https://images.pexels.com/photos/19870646/pexels-photo-19870646.jpeg",
+        "description": "Healthy vegetarian bowl for meal cards."
+      },
+      "friends": [
+        {
+          "url": "https://images.pexels.com/photos/5937765/pexels-photo-5937765.jpeg",
+          "name": "Alex"
+        },
+        {
+          "url": "https://images.pexels.com/photos/6388527/pexels-photo-6388527.jpeg",
+          "name": "Sam"
+        }
+      ]
+    }
+  },
+  "accessibility_and_testing": {
+    "data_testid_requirement": "All interactive and key informational elements MUST include a data-testid attribute in kebab-case (e.g., data-testid='log-swimming-button').",
+    "contrast": "Ensure text contrast on top of primary buttons is high (use black text on Electric Blue/Teal)."
+  },
+  "instructions_to_main_agent": [
+    "Build the dashboard FIRST. The app is a mobile app view, so constrain the main wrapper to max-w-md mx-auto.",
+    "Ensure all code generated is in standard JavaScript (.js or .jsx) since this environment does not use TypeScript (.tsx).",
+    "Use Tailwind CSS for all styling. Do not use generic Shadcn cards if they break the dark tactical minimalist aesthetic; use the classes provided in the card components section.",
+    "For the bottom nav bar, use fixed positioning and backdrop-blur.",
+    "Integrate Recharts for the Progress Tracker. Keep charts minimal, hiding axes if possible.",
+    "Ensure 'data-testid' is used aggressively on all clickable items, form inputs, and metric displays.",
+    "In-app notifications (Nudges) can be built using Sonner or a custom absolute positioned banner.",
+    "The meal upload can be a mock file input that triggers a loading state and random calorie result."
+  ]
+}
